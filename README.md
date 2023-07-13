@@ -24,7 +24,7 @@ Thanks to Eissa, we have an initial wireframe!
 CSS framework: bulma.io CSS framework
 
 ## Rough breakdown of tasks
-Nick: Investigate the viability of using google maps to get a list of skate parks
-Eissa: Create a wireframe from the User Stories: layout and function of the page
-Sam: Create examples of how to use bulma.io framework
-Sam: Set up team repository starter code and repo organization
+* Nick: Investigate the viability of using google maps to get a list of skate parks
+* Eissa: Create a wireframe from the User Stories: layout and function of the page
+* Sam: Create examples of how to use bulma.io framework
+* Sam: Set up team repository starter code and repo organization

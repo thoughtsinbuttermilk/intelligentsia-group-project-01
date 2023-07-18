@@ -24,7 +24,7 @@
           </p>
         </div>
       </div>
-
+a
       <div class="columns is-vcentered">
         <div class="column">
           <p><i class="fa-solid fa-cloud" style="color: #b3ddf2;"></i></p>
@@ -43,6 +43,31 @@
           <p><i class="fa-solid fa-cloud-rain fa-lg" style="color: #b3ddf2;"></i></p>
         </div>
       </div>
+
+      <!--sample showModal() method -->
+      <!-- pop-up dialog box, containing a form -->
+<dialog id="favDialog">
+  <form method="dialog">
+    <p>
+      <label for="favAnimal">Favorite animal:</label>
+      <select id="favAnimal" name="favAnimal">
+        <option></option>
+        <option>Brine shrimp</option>
+        <option>Red panda</option>
+        <option>Spider monkey</option>
+      </select>
+    </p>
+    <div>
+      <button id="cancel" type="reset">Cancel</button>
+      <button type="submit">Confirm</button>
+    </div>
+  </form>
+</dialog>
+
+<div>
+  <button id="updateDetails">Update details</button>
+</div>
+
 
     </section>
   </body>

@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/20f3bb8a03.js"
-      crossorigin="anonymous"></script>
-    <script type="module" src="./assets/js/script.js"></script>
-    <link rel="stylesheet" type="text/css" href="./assets/css/stylesheet.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/20f3bb8a03.js" crossorigin="anonymous"></script>
 
-  <body>
+  <link rel="stylesheet" type="text/css" href="./assets/css/stylesheet.css">
+  <script src="assets/js/script.js"></script>
 
-    <section class="section">
-      <div class="container">
-        <div class="columns">
-          <h1 class="title">
-            Hello World
-          </h1>
-          <p class="subtitle">
-            My first website with <strong>Bulma</strong>!
-          </p>
-        </div>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <h1 class="title">
+          Hello World
+        </h1>
+        <p class="subtitle">
+          My first website with <strong>Bulma</strong>!
+        </p>
       </div>
+    </div>
 
-      <div class="columns is-vcentered">
-        <div class="column">
-          <p><i class="fa-solid fa-cloud" style="color: #b3ddf2;"></i></p>
-          <p><i class="fa-solid fa-cloud fa-lg" style="color: #b3ddf2;"></i></p>
-        </div>
-        <div class="column">
-          <p><i class="fa-solid fa-sun" style="color: #b3ddf2;"></i></p>
-          <p><i class="fa-solid fa-sun fa-lg" style="color: #b3ddf2;"></i></p>
-        </div>
-        <div class="column">
-          <p><i class="fa-solid fa-wind" style="color: #b3ddf2;"></i></p>
-          <p><i class="fa-solid fa-wind fa-lg" style="color: #b3ddf2;"></i></p>
-        </div>
-        <div class="column">
-          <p><i class="fa-solid fa-cloud-rain" style="color: #b3ddf2;"></i></p>
-          <p><i class="fa-solid fa-cloud-rain fa-lg" style="color: #b3ddf2;"></i></p>
-        </div>
+    <div class="columns is-vcentered">
+      <div class="column">
+        <p><i class="fa-solid fa-cloud" style="color: #b3ddf2;"></i></p>
+        <p><i class="fa-solid fa-cloud fa-lg" style="color: #b3ddf2;"></i></p>
       </div>
+      <div class="column">
+        <p><i class="fa-solid fa-sun" style="color: #b3ddf2;"></i></p>
+        <p><i class="fa-solid fa-sun fa-lg" style="color: #b3ddf2;"></i></p>
+      </div>
+      <div class="column">
+        <p><i class="fa-solid fa-wind" style="color: #b3ddf2;"></i></p>
+        <p><i class="fa-solid fa-wind fa-lg" style="color: #b3ddf2;"></i></p>
+      </div>
+      <div class="column">
+        <p><i class="fa-solid fa-cloud-rain" style="color: #b3ddf2;"></i></p>
+        <p><i class="fa-solid fa-cloud-rain fa-lg" style="color: #b3ddf2;"></i></p>
+      </div>
+    </div>
 
-    </section>
-    <div id="map" class="mapPosition"></div>
-    <script>
-        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-          key: "AIzaSyCbHIyT2Mt-FO1D2JDGE4NAAHUXlDfFIYo",
-        });
-      </script> 
-  </body>
+    <div id="name-entry" class="hide">
+      <input type="text" placeholder="Enter zip code" id="nameEntryInput">
+      <button id="searchButton">Search</button>
+    </div>
+
+  </section>
+  
+    <div class="column" id="searchResults">
+      <h2>Search Results</h2>
+      <div id="skateparkList"></div>
+    </div>
+  
+
+  <div id="map" class="mapPosition"></div>
+
+  
+
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHIyT2Mt-FO1D2JDGE4NAAHUXlDfFIYo&libraries=places&callback=initMap">
+  </script>
+</body>
 
 </html>

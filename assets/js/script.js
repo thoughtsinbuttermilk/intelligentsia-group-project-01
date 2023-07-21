@@ -9,7 +9,7 @@ function initMap() {
   var maxMarkers = 7;
 
   document.getElementById('searchButton').addEventListener('click', function () {
-    var zipCode = document.getElementById('nameEntryInput').value;
+    var zipCode = document.getElementById('zipcodeInput').value;
     if (zipCode) {
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'address': zipCode }, function (results, status) {

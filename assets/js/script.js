@@ -1,27 +1,92 @@
-// Initialize and add the map
-let map;
-
-async function initMap() {
-  // Starting location
-  const position = {lat: 41.9666998, lng: -87.6466127};
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-  // The map, centered at a location
-  map = new Map(document.getElementById("map"), {
-    zoom: 16,
-    center: position,
-    mapId: "DEMO_MAP_ID",
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 0, lng: 0 },
+    zoom: 10
   });
 
-  // Map marker
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Wilson",
+
+  var markers = [];
+  var maxMarkers = 7;
+
+  document.getElementById('searchButton').addEventListener('click', function () {
+    var zipCode = document.getElementById('nameEntryInput').value;
+    if (zipCode) {
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': zipCode }, function (results, status) {
+        if (status === 'OK') {
+          var location = results[0].geometry.location;
+
+          var service = new google.maps.places.PlacesService(map);
+
+          service.nearbySearch({
+            location: location,
+            radius: 12187.2, // 20 miles in meters
+            //type: ['park'],
+            keyword: 'skatepark'
+          }, function (results, status) {
+            if (status === 'OK') {
+              clearMarkers();
+              displaySkateparkResults(results.slice(0, maxMarkers));
+              for (var i = 0; i < results.length && i < maxMarkers; i++) {
+                createMarker(results[i]);
+              }
+            }
+          });
+
+          map.setCenter(location);
+        } else {
+          
+        }
+      });
+    } else {
+     
+    }
   });
+
+  function createMarker(place) {
+    if (markers.length >= maxMarkers) return;
+
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: place.name
+    });
+
+    marker.addListener('click', function () {
+      infowindow.open(map, marker);
+    });
+
+    markers.push(marker);
+  }
+
+  function clearMarkers() {
+    markers.forEach(function (marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+  }
+
+  function displaySkateparkResults(results) {
+    var skateparkList = document.getElementById('skateparkList');
+    skateparkList.innerHTML = '';
+    results.forEach(function (result) {
+      var skateparkBox = document.createElement('div');
+      skateparkBox.classList.add('skatepark-box');
+
+      var name = document.createElement('p');
+      name.textContent = result.name;
+      skateparkBox.appendChild(name);
+
+      if (result.vicinity) {
+        var address = document.createElement('p');
+        address.textContent = result.vicinity;
+        skateparkBox.appendChild(address);
+      }
+
+      skateparkList.appendChild(skateparkBox);
+    });
+  }
 }
-
-initMap();

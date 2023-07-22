@@ -8,7 +8,10 @@
   
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  
+  <link rel="stylesheet" href="./assets/css/stylesheet.css"/>
+
+  
     <title>My Wheels, My City</title>
   </head>
 
@@ -24,18 +27,23 @@
 
       <div class="card">
         <h3 class="card-header text-uppercase">Search By Zip Code:</h3>
-        <form id="user-form" class="card-body">
-          <input id="zipcode" type="text" autofocus="true" placeholder="Enter Zip Code" class="input-zip" />
-          <button type="submit" class="btn">Search</button>
-        </form>
+          <!--The map wasn't loading properly so I removed the <form> tag if that's alright-->
+          <input id="zipcodeInput" type="text" autofocus="true" placeholder="Enter Zip Code" class="input-zip" />
+          <button id="searchButton" type="submit" class="btn">Search</button>
+       
     </div>
-
-    <div class="col-12 col-md-8">
-      <h2 class="subtitle">Results: <span id="skateParkResults"></span></h2>
-      <div id="results" class="list-group"></div>
+<!--just changed or added a couple id tags to get the map script to work-->
+    <div class="col-12 col-md-8" id="searchResults">
+      <h2 class="subtitle">Results: </h2>
+      <div id="skateparkList" class="list-group"></div>
     </div>
   </main>
-        
+
+  <div id="map" class="mapPosition"></div>
+   
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHIyT2Mt-FO1D2JDGE4NAAHUXlDfFIYo&libraries=places&callback=initMap">
+  </script>
+
   <script src="./assets/js/script.js"></script>
   </body>
 

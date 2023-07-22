@@ -94,3 +94,19 @@ function initMap() {
     });
   }
 }
+
+function cityWeather( cityID ) {
+  var apiKey = 'e65d2cbe1dd88ddf7e7269cfa2943d10';
+  fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + apiKey)  
+  // convert response to .json
+  .then(function(resp) { return resp.json() }) 
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(function() {
+  });
+}
+
+window.onload = function() {
+  cityWeather(5809844);
+}

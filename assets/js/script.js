@@ -94,19 +94,32 @@ function initMap() {
     });
   }
 }
+// put the values in the html elements for rendering to screen
+function renderCityWeather(d) {
+	// var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+	
+	document.getElementById('description').innerHTML = d.weather[0].description;
+	// should probably make this conditional based on whether the weather is reported in fahrenheit or celcius
+  document.getElementById('temp').innerHTML = fahrenheit + '&deg; F';
+	document.getElementById('location').innerHTML = d.name;
+}
 
-function cityWeather( cityID ) {
+function cityWeather(cityID) {
   var apiKey = 'e65d2cbe1dd88ddf7e7269cfa2943d10';
   fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + apiKey)  
   // convert response to .json
   .then(function(resp) { return resp.json() }) 
   .then(function(data) {
-    console.log(data);
+    renderCityWeather(data);
   })
   .catch(function() {
   });
 }
 
 window.onload = function() {
+  // need to get the city from the user input
   cityWeather(5809844);
 }
+
+

@@ -15,7 +15,7 @@ font-style: oblique;
 }
 
 .btn:hover {
-  color: dimgray; 
+  color: rgb(137, 44, 44); 
   box-shadow: 2px 2px var(--dark);
 }
 

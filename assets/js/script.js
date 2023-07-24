@@ -116,5 +116,5 @@ function cityWeather(cityID) {
 
 window.onload = function() {
   // need to get the city from the user input
-  cityWeather(5809844);
+  cityWeather(4887398);
 }

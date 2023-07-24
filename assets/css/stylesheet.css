@@ -13,6 +13,14 @@ font-size: xx-large;
 font-style: oblique;
 
 }
+
+.btn:hover {
+  color: dimgray; 
+  box-shadow: 2px 2px var(--dark);
+}
+
+
+
 .mapPosition {
   float: right;
   margin-top: 50px;

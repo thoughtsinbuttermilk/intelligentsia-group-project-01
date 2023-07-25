@@ -16,11 +16,11 @@ My Wheels, My City! helps people who are interested in wheels with out engines, 
 - WHEN the user opens the application
 - THEN the title and the "search" instructions are displayed 
 - WHEN the user scrolls down
-- Then the user can enter current zip code in search box
-- When the use clicks the "Search" button
-- Then the skate park location results are displayed
-- When the user browse the skate park results
-- Then the user can refernce the map, which illustrates the exact location of the skate park
+- THEN the user can enter current zip code in search box
+- WHEN the user clicks the "Search" button
+- THEN the skate park location results are displayed
+- WHEN the user browse the skate park results
+- WHEN the user can refernce the map, which illustrates the exact location of the skate park
 
 ## Wireframe
 

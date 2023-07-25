@@ -17,7 +17,7 @@ My Wheels, My City! helps people who are interested in wheels with out engines, 
 - THEN the title and the "search" instructions are displayed 
 - WHEN the user scrolls down
 - THEN the user can enter current zip code in search box
-- WHEN the use clicks the "Search" button
+- WHEN the user clicks the "Search" button
 - THEN the skate park location results are displayed
 - WHEN the user browse the skate park results
 - WHEN the user can refernce the map, which illustrates the exact location of the skate park

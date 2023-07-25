@@ -67,7 +67,8 @@ function initMap() {
       marker.setMap(null);
     });
     markers = [];
-  }
+  } 
+  
 // displaying results in html
   function displaySkateparkResults(results) {
     var skateparkList = document.getElementById('skateparkList');
@@ -89,7 +90,7 @@ function initMap() {
     });
   }
 }
-// put the values in the html elements for rendering to screen
+// put the values in the html elements for rendering to the screen
 function renderCityWeather(d) {
 	// var celcius = Math.round(parseFloat(d.main.temp)-273.15);
 	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 

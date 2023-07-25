@@ -8,6 +8,7 @@
   
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
   <link rel="stylesheet" href="./assets/css/stylesheet.css"/>
   <title>My Wheels, My City</title>
   </head>
@@ -16,7 +17,7 @@
   <header class="hero"></header>
   <section class="img">
     <h1 id="header" class="app-title">My Wheels, My City!</h1>
-    <img src="./assets/images/quarterpipe-park (1).png" class="image"/>
+    <img src="./assets/images/quarterpipe-park (1).png" class="image">
     <p style="text-align: center"><strong>Search for a local skate park near you!</strong></p>
   </section>
 
@@ -29,29 +30,22 @@
           <!--The map wasn't loading properly so I removed the <form> tag if that's alright-->
           <input id="zipcodeInput" type="text" autofocus="true" placeholder="Enter Zip Code" class="input-zip" />
           <button id="searchButton" type="submit" class="btn">Search</button>
-       
       </div>
-
-  <section class="section">
-    <div class="container">
-        <div class="columns">
-      <h1 class="title">
-        My Wheels, My City
-      </h1>
-    </div>
 <!--just changed or added a couple id tags to get the map script to work-->
     <div class="col-12 col-md-8" id="searchResults">
       <h2 class="subtitle">Results: </h2>
       <div id="skateparkList" class="list-group"></div>
+      <div id="description"></div>
+      <h3 id="temp"></h3>
+      <div id="location"></div>
     </div>
   </main>
 
   <div id="map" class="mapPosition"></div>
    
-  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHIyT2Mt-FO1D2JDGE4NAAHUXlDfFIYo&libraries=places&callback=initMap">
-  </script>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHIyT2Mt-FO1D2JDGE4NAAHUXlDfFIYo&libraries=places&callback=initMap"></script>
 
-  <script src="./assets/js/script.js"></script>
-  </body>
+<script src="./assets/js/script.js"></script>
+</body>
 
 </html>

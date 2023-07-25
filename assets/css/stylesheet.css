@@ -14,7 +14,9 @@ font-style: oblique;
 
 }
 
-
+.card {
+  background-color:bisque;
+}
 
 .btn:hover {
   color: rgb(137, 44, 44); 
@@ -32,12 +34,10 @@ body {
   margin-top: 50px;
   margin-right: 50px;
   margin-bottom: 50px;
+  
+  
 }
 
 :root {
     --chicagoBlue: b3ddf2;
 }
-
-/* .fa {
-    color: var(--chicagoBlue);
-} */

@@ -1,17 +1,20 @@
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 0, lng: 0 },
+    // map zoom, lower number = farther out
     zoom: 10
   });
 
 
   var markers = [];
+  // maximum number of markers shown on map
   var maxMarkers = 7;
 
   document.getElementById('searchButton').addEventListener('click', function () {
     var zipCode = document.getElementById('zipcodeInput').value;
     if (zipCode) {
       var geocoder = new google.maps.Geocoder();
+      // searching via zip to geocode a location
       geocoder.geocode({ 'address': zipCode }, function (results, status) {
         if (status === 'OK') {
           var location = results[0].geometry.location;
@@ -20,8 +23,9 @@ function initMap() {
 
           service.nearbySearch({
             location: location,
-            radius: 12187.2, // 20 miles in meters
-            //type: ['park'],
+            // 20 miles in meters
+            radius: 12187.2,
+            // searching only for skateparks
             keyword: 'skatepark'
           }, function (results, status) {
             if (status === 'OK') {
@@ -32,17 +36,13 @@ function initMap() {
               }
             }
           });
-
           map.setCenter(location);
-        } else {
-          
         }
       });
-    } else {
-     
+    
     }
   });
-
+// create marker and put onto searched location keyword
   function createMarker(place) {
     if (markers.length >= maxMarkers) return;
 
@@ -61,14 +61,15 @@ function initMap() {
 
     markers.push(marker);
   }
-
+// clear markers 
   function clearMarkers() {
     markers.forEach(function (marker) {
       marker.setMap(null);
     });
     markers = [];
-  }
-
+  } 
+  
+// displaying results in html
   function displaySkateparkResults(results) {
     var skateparkList = document.getElementById('skateparkList');
     skateparkList.innerHTML = '';
@@ -85,7 +86,6 @@ function initMap() {
         address.textContent = result.vicinity;
         skateparkBox.appendChild(address);
       }
-
       skateparkList.appendChild(skateparkBox);
     });
   }
@@ -117,4 +117,31 @@ function cityWeather(cityID) {
 window.onload = function() {
   // need to get the city from the user input
   cityWeather(4887398);
+}
+// put the values in the html elements for rendering to the screen
+function renderCityWeather(d) {
+	// var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+	
+	document.getElementById('description').innerHTML = d.weather[0].description;
+	// should probably make this conditional based on whether the weather is reported in fahrenheit or celcius
+  document.getElementById('temp').innerHTML = fahrenheit + '&deg; F';
+	document.getElementById('location').innerHTML = d.name;
+}
+
+function cityWeather(cityID) {
+  var apiKey = 'e65d2cbe1dd88ddf7e7269cfa2943d10';
+  fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + apiKey)  
+  // convert response to .json
+  .then(function(resp) { return resp.json() }) 
+  .then(function(data) {
+    renderCityWeather(data);
+  })
+  .catch(function() {
+  });
+}
+
+window.onload = function() {
+  // need to get the city from the user input
+  cityWeather(5809844);
 }
